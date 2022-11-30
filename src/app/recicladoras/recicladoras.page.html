@@ -22,15 +22,17 @@
     <ion-item *ngFor="let recicladora of listaRecicladoras" class="item-espaciado">
       <ion-label>
         <h1>{{ recicladora.nombre_rec }}</h1>
-        <p>{{ recicladora.ciudad }}. {{ recicladora.barrio }}</p>
-        <p>{{ recicladora.calle }}</p>
-        <p>¿Ofrece remuneración?: {{ recicladora.paga }}</p>
+        <div class="ciudad">
+          <p>{{ recicladora.ciudad }}. {{ recicladora.barrio }}.</p>
+        </div>
+        <p>{{ recicladora.calle }}.</p>
+        <p>¿Ofrece remuneración?: {{ recicladora.paga }}.</p>
         <p>
-          <ion-text color="tertiary">
-            <ion-badge color="secondary" *ngFor="let material of recicladora.materiales">
-              {{ material.material }}
+          <ion-text color="tertiary" *ngFor="let material of recicladora.materiales">
+            <p></p>
+            <ion-badge color="tertiary">
+            {{ material.material }}
             </ion-badge>
-
           </ion-text>
         </p>
         <div class="boton-ionic">
@@ -39,17 +41,9 @@
             Google Maps
           </ion-button>
         </div>
-      </ion-label>
-
-      <!--<ion-item *ngFor="let material of materialesPorRec">
-      <ion-label>
-        <p>material.material</p>
-      </ion-label>
-    </ion-item>-->
-           
+      </ion-label>           
     </ion-item>
   
   </ion-list>
   
 </ion-content>
-

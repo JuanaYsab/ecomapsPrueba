@@ -8,15 +8,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen="true" class="ion-padding">
   
   <ion-refresher slot="fixed" (ionRefresh)="cargarMateriales()">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
- 
   <div id="container">
-    <strong>Seleccione el material que quiera reciclar</strong>
-    <ion-list lines="none">
+    <strong>Seleccione el material que quiera destinar</strong>
+        <ion-list lines="none">
       <ion-item *ngFor="let material of listaMateriales ">
         <ion-checkbox slot="start"
         [(ngModel)]="materialesSeleccionados[material.idmaterial]"
@@ -25,8 +24,8 @@
         <ion-label>{{ material.material }}</ion-label>
       </ion-item>
     </ion-list>
-   <ion-button *ngIf="mostrarBoton" (click)="mostrar()">Mostrar</ion-button>
-   <ion-button *ngIf="mostrarBoton" (click)="resetear()" type="reset">Cancelar</ion-button>
+      <ion-button *ngIf="mostrarBoton" (click)="mostrar()">Mostrar</ion-button>
+      <ion-button *ngIf="mostrarBoton" (click)="resetear()" type="reset">Cancelar</ion-button>
   </div>
 
 </ion-content>

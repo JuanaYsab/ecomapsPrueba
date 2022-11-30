@@ -102,7 +102,9 @@ export class RecicladorasComponent implements OnInit {
           color: 'danger'
         }).then(t => t.present());
       }
-    })
+    });
+    
+
   }
 
   private editar(){
