@@ -5,6 +5,7 @@ import { Recicladoras } from 'src/app/interfaces/recicladoras.interface';
 import { Material } from 'src/app/interfaces/material.interface';
 import { ListarecicladorasService } from 'src/app/servicios/listarecicladoras.service';
 import { MaterialService } from 'src/app/servicios/material.service';
+import { DetalleMaterialService } from '../../servicios/detalle-material.service';
 
 @Component({
   selector: 'app-formulario',
@@ -23,13 +24,14 @@ export class FormularioComponent implements OnInit, ViewWillEnter {
     gpsCtrl: new FormControl<string>(null,[Validators.required]),
     telefonoCtrl: new FormControl<number>(null,[Validators.required]),
     pagaCtrl: new FormControl<string>(null,[Validators.required]),
-    materialesCtrl: new FormControl<string>(null,[Validators.required]),
+    materialesCtrl: new FormControl<number[]>([], [Validators.required]),
+   
   });
 
   constructor(
     private servicioRecicladora: ListarecicladorasService,
     private servicioMaterial: MaterialService,
-    private servicioToast: ToastController
+    private servicioToast: ToastController,
   ) { }
 
   ionViewWillEnter(): void {
@@ -64,6 +66,19 @@ export class FormularioComponent implements OnInit, ViewWillEnter {
   };
 
   private registrar(){
+    const materialesEnvio: Material[] = [];
+    this.form.controls.materialesCtrl.value.forEach(id => {
+      materialesEnvio.push({idmaterial: id, material: null});
+    })
+
+/*private registrarM(){
+  const materialesEnvio : Material[] = [];
+  this.form.controls.materialesCtrl.setValue(arregloIds)
+  materialesEnvio.push({idmaterial: id, material: null});
+
+}*/
+   // 
+      
     const formulario: Recicladoras = {
       idrecicladora: null,
       nombre_rec: this.form.controls.nombreCtrl.value,
@@ -74,7 +89,7 @@ export class FormularioComponent implements OnInit, ViewWillEnter {
       telefono_rec: this.form.controls.telefonoCtrl.value,
       paga: this.form.controls.pagaCtrl.value,
       estado: null,
-      materiales: null
+      materiales: materialesEnvio
     }
     this.servicioRecicladora.post(formulario).subscribe({
       next: ()=>{
@@ -96,5 +111,6 @@ export class FormularioComponent implements OnInit, ViewWillEnter {
       }
     })
   }
+
 
 }

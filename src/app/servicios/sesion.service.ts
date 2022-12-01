@@ -4,13 +4,15 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators'
 import { Credenciales } from '../interfaces/credenciales.interface';
 import { JwtHelperService } from '@auth0/angular-jwt'
+import { ApiUtil } from './api-util';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SesionService {
 
-  private url: string = "http://localhost:3000/sesion";
+  private url: string = `http://${ApiUtil.IP}:3000/sesion`;
+
   private timer: any;
 
   constructor(

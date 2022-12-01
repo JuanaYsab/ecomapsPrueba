@@ -12,42 +12,34 @@
     font-size: 25px;
     line-height: 36px;
     color:black;
+   // font-family:cursive;
+
   }
   
   #container p {
-    font-size: 16px;
+    font-size: 30px;
     line-height: 22px;
     color: #8c8c8c;
     margin: 0;
+
   }
   
   #container a {
-    text-decoration: none;
+    text-decoration:line-through;
+    font-size:x-large;
   }
 
 ion-checkbox{
   --size: 20px;
   --background-checked: orange;
- // --background-checked: #a8a8a8;
+  
+
 } 
   
 ion-checkbox::part(container) {
     border-radius: 6px;
-   // border: 3px solid #8c8c8c;
   border: 3px solid orange;
-
     size:70%;
-}
-
-//.boton-ionic{
-//  text-align: center;
-  //background-color: white;
-//}
-
-ion-button{
-  --color: black;
-  background-color: orange;
-  
 }
 
 ion-content{
@@ -55,13 +47,27 @@ ion-content{
 }
 
 ion-item{
-  --background:#5141aabd;
-  color: aliceblue;
+  color: black;
   padding: 5px 25px 5px  25px;
-  border-radius: 10px 100px / 120px;
+ border: none;
+  background: rgba(238, 130, 238, 0.493);
+  --backdrop-color:red;
+
+border-radius: 40px 10px;
 }
 
+/*ion-button{
+  --color: black;
+  --border-width: 5px;
+  --border-radius: 4px;
+  --border-color: orange;
+--background: white;
 
+}*/
 ion-list{
-  background:white;
+  background-color:#8ae2cc;
+}
+
+ion-item-background{
+  background-color: #8ae2cc;
 }

@@ -10,5 +10,6 @@ export interface Recicladoras{
     calle: string | null;
     gps: string | null;
     estado: string | null;
-    materiales: Material[]
+    materiales: Material[];
+    //idmaterial: Material[];
 }

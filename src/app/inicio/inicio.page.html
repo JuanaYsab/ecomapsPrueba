@@ -15,17 +15,21 @@
   </ion-refresher>
   <div id="container">
     <strong>Seleccione el material que quiera destinar</strong>
+
         <ion-list lines="none">
       <ion-item *ngFor="let material of listaMateriales ">
+
         <ion-checkbox slot="start"
         [(ngModel)]="materialesSeleccionados[material.idmaterial]"
         (ngModelChange)="seleccionMaterial()">
       </ion-checkbox>
+
         <ion-label>{{ material.material }}</ion-label>
       </ion-item>
     </ion-list>
-      <ion-button *ngIf="mostrarBoton" (click)="mostrar()">Mostrar</ion-button>
-      <ion-button *ngIf="mostrarBoton" (click)="resetear()" type="reset">Cancelar</ion-button>
-  </div>
+      <ion-button color="warning" *ngIf="mostrarBoton" (click)="mostrar()">Mostrar</ion-button>
+      <ion-button color="warning" *ngIf="mostrarBoton" (click)="resetear()" type="reset">Cancelar</ion-button>
+    
+    </div>
 
 </ion-content>
